@@ -38,11 +38,18 @@
 
 # TODO: Edit this sample idea.
 
-- topic: Numerical Linear Algebra
-  idea:  Develop a fast matrix multiplication algorithm to reduce
-         energy consumption during deep learning inference.
+- topic: Fourier Transform and Spectral Analysis
+  idea:  Develop an algorithm to recognize the common shape of rotation curves of 
+         emission lines (e.g., [O II]) in 3-configuration spectra taken by MMT/Binospec.
 
 # TODO: Add two more project ideas below, following the same format as
 # the example above.
 # Remember to ensure that each idea is distinct and concise, and each
 # "topic" must be one of the listed course topics.
+
+- topic: Interpolation and Extrapolation
+  idea:  Use Polynomial Interpolation and Extrapolation to develop a method for 
+         integrating emission line flux with non-Gaussian shapes.
+
+- topic: 
+  idea:  
