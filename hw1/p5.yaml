@@ -1,12 +1,12 @@
 # Please look for "TODO" in the comments, which indicate where you
 # need to write your code.
 #
-# Part 5: Providing Project Ideas (1 points)
+# Part 5: Providing Project Ideas (1 point)
 #
 # * Objective:
-#   Provide draft project ideas in order to form teams.
+#   Provide draft project ideas to form teams.
 # * Details:
-#   * This part ensures student start putting time to brainstorm their
+#   * This part ensures students start putting time into brainstorming their
 #     (mid-term) projects.
 #   * Your submission should include three project ideas based on the
 #     topics that are covered in the first half of this course:
@@ -19,7 +19,7 @@
 #     * Root Finding and Optimization Methods
 #     * ODE Integrators
 #     * PDE Solvers
-#   * You submission will be a well formatted YAML file `hw1/p5.yaml`.
+#   * Your submission will be a well-formatted YAML file `hw1/p5.yaml`.
 #
 # About YAML:
 # * YAML (short for "YAML Ain't Markup Language") is a human-readable
@@ -40,7 +40,8 @@
 
 - topic: Fourier Transform and Spectral Analysis
   idea:  Develop an algorithm to recognize the common shape of rotation curves of 
-         emission lines (e.g., [O II]) in 3-configuration spectra taken by MMT/Binospec.
+         emission lines (e.g., [O II]) in tripe slit-configuration spectra 
+         taken by MMT/Binospec.
 
 # TODO: Add two more project ideas below, following the same format as
 # the example above.
@@ -51,5 +52,6 @@
   idea:  Use Polynomial Interpolation and Extrapolation to develop a method for 
          integrating emission line flux with non-Gaussian shapes.
 
-- topic: 
-  idea:  
+- topic: Numerical Linear Algebra
+  idea:  Generate a rapid matrix multiplication for the combination of rotation, 
+         shear, inclination, and slit position.
