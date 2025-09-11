@@ -20,6 +20,6 @@ version = "0.1.0"
 dependencies = [
     "pytest",  # must include pytest because we use it for autograding
     "numpy",   
-    "matplotlib", 
+    # "matplotlib", 
     
 ]
