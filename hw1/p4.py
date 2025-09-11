@@ -45,11 +45,42 @@ class CoupledOscillators:
             k  (float):              spring constant (assumed identical for all springs).
 
         """
-        # TODO: Construct the stiffness matrix K
-        # TODO: Solve the eigenvalue problem for K to find normal modes
-        # TODO: Store angular frequencies and eigenvectors
-        # TODO: Compute initial modal amplitudes M0 (normal mode decomposition)
+        # Done: Construct the stiffness matrix K
+        N = len(X0) # Not sure if only 3 springs present here...
+        if   N == 2:
+            K = np.array([[ 2*k, -1*k], 
+                          [-1*k,  2*k]])
+        elif N == 3:
+            K = np.array([[ 2*k, -1*k,    0], 
+                          [-1*k,  2*k, -1*k], 
+                          [   0, -1*k,  2*k]])
+        elif N == 4:
+            K = np.array([[ 2*k, -1*k,    0,    0], 
+                          [-1*k,  2*k, -1*k,    0], 
+                          [   0, -1*k,  2*k, -1*k], 
+                          [   0,    0, -1*k,  2*k]])
+        else:
+            K = np.zeros((N, N))
+            for i in range(N):
+                K[i, i] = 2*k # diagonal
+                if i > 0:
+                    K[i, i-1] = -k # 1-index off down
+                if i < N-1:
+                    K[i, i+1] = -k # 1-index off up
+        
+        # Done: Solve the eigenvalue problem for K to find normal modes
+        eigenvalues, eigenvectors = np.linalg.eigh(K/m)
+        Omega   = np.sqrt(eigenvalues)
+        Mod_Vec = eigenvectors
 
+        # Done: Store angular frequencies and eigenvectors
+        self.Omega   = Omega
+        self.Mod_Mec = Mod_Vec
+        
+        # Done: Compute initial modal amplitudes M0 (normal mode decomposition)
+        M0 = np.dot(Mod_Vec.T, X0)
+        self.M0 = M0
+        
     def __call__(self, t):
         """Calculate the displacements of the oscillators at time t.
 
@@ -60,14 +91,17 @@ class CoupledOscillators:
             np.ndarray: displacements of the oscillators at time t.
 
         """
-        # TODO: Reconstruct the displacements from normal modes
-
+        # Done: Reconstruct the displacements from normal modes
+        q_t = self.M0 * np.cos(self.Omega * t)
+        X_t = np.dot(self.V, q_t)
+        
+        return X_t
 
 if __name__ == "__main__":
-
+    
     # Initialize the coupled oscillator system with default parameters
     co = CoupledOscillators()
-
+    
     # Print displacements of the oscillators at each time step
     print("Time(s)  Displacements")
     print("----------------------")
