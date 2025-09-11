@@ -93,7 +93,7 @@ class CoupledOscillators:
         """
         # Done: Reconstruct the displacements from normal modes
         q_t = self.M0 * np.cos(self.Omega * t)
-        X_t = np.dot(self.V, q_t)
+        X_t = np.dot(self.Mod_Mec, q_t)
         
         return X_t
 
